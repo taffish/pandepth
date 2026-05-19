@@ -4,10 +4,27 @@ TAFFISH wrapper for [PanDepth](https://github.com/HuiyangYu/PanDepth), an
 ultrafast genomic coverage and depth calculator for SAM, BAM, CRAM, and PAF
 alignment files.
 
-This app packages upstream PanDepth `v2.26` as `pandepth 2.26-r1`. The default
+This app packages upstream PanDepth `v2.26` as `pandepth 2.26-r2`. The default
 TAFFISH command runs the upstream `pandepth` executable directly, and command
 mode remains enabled so the same container environment can also be inspected
 explicitly with `taf-pandepth pandepth ...`.
+
+Release `2.26-r2` is a help-only TAFFISH update. It keeps the upstream
+software, Dockerfile, runtime dependencies, smoke tests, and command behavior
+unchanged from `2.26-r1`, and refreshes the terminal `taf-pandepth --help`
+text.
+
+Package metadata:
+
+```text
+name: pandepth
+command: taf-pandepth
+version: 2.26-r2
+kind: tool
+image: ghcr.io/taffish/pandepth:2.26-r2
+upstream release: v2.26
+upstream runtime version: [v2.26] in help banner
+```
 
 ## Quick Start
 
@@ -151,7 +168,7 @@ replace full biological validation on real sequencing or assembly datasets.
 ```sh
 taf check
 taf build
-docker build -t ghcr.io/taffish/pandepth:2.26-r1 -f docker/Dockerfile .
+docker build -t ghcr.io/taffish/pandepth:2.26-r2 -f docker/Dockerfile .
 taf publish --release --dry-run
 ```
 
